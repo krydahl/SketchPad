@@ -1,0 +1,78 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SketchPad</title>
+        <meta name="description" content="">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- My actual html --> 
+        <header>
+			<ul id="bar">
+            	<li class="headEl">
+                    <button id="clearButton" type="button">Clear</button>
+				</li>
+				<li class="headEl">
+					<button id="configButton" type="button">Configure Canvas</button>
+				</li>
+                <li class="pen">Pen colour:</li>
+                <li class="pen" id="black"></li>
+                <li class="pen" id="blue"></li>
+                <li class="pen" id="red"></li>
+                <li class="pen" id="green"></li>
+			</ul>
+		</header>
+        <main>
+            <div id="instructions" class="configMess">
+                <p>Draw on the canvas by holding down the mouse button.</p>
+                <p>Erase drawing by holding down the right mouse button.</p>
+                <p>Click clear to erase all of your drawing.</p>
+                <p>Click these instructions to hide them.</p><br/>
+                <button id="continue">Continue</button>
+            </div>
+            
+            <form class="configMess" id="collectData">
+                <p>Select pixel size:</p>
+                <input id="tiny" type="radio" name="pixelSize" value="tiny"> Tiny<br>
+                <input type="radio" name="pixelSize" value="small"> Small<br>
+                <input type="radio" name="pixelSize" value="medium" checked> Medium<br>
+                <input type="radio" name="pixelSize" value="large"> Large<br>
+                <p>Select method to specify canvas size:</p>
+                <input type="radio" name="canvMeth" value="mouse"> Resize with mouse<br>
+                <input type="radio" name="canvMeth" value="pixel" checked> Specify pixels<br>
+                <input type="radio" name="canvMeth" value="actual"> Specify actual size<br><br>
+                <button id="formSaver1">Save</button>
+            </form>
+            
+            <form class="configMess" id="sizeData">
+                 <p>Height: <input type="text" name="height"></p>
+                 <p>Width: <input type="text" name="width"></p>        
+                 <button id="formSaver2">Save</button>
+            </form>
+            
+            <div class="configMess" id="mouseData">
+                <p>Resize the canvas as required, then:</p>
+                <button id="formSaver3">Save</button>
+            </div>
+            
+            <div id="wrapper" oncontextmenu="return false;"></div>      
+        </main>
+
+        <!-- Load jQuery and javascript files -->
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

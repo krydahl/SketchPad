@@ -1,0 +1,72 @@
+html, body {
+  height: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#wrapper {
+	font-size: 0px;
+	border-style: solid;
+	border-width: 2px;
+}
+
+.padElement {
+	display: inline-block;
+	margin: 0px;
+	width: 8px;
+	height: 8px;
+	background: white;
+	visibility: hidden;
+}
+
+.black {background: black;}
+.blue {background: blue;}
+.red {background: red;}
+.green {background: green;}
+
+/* Formatting for header and top menu items */
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe6cc;
+}
+
+#bar {
+    padding: 0;
+	margin: 4px 0 4px 0;
+	list-style-type: none;
+}
+
+.headEl {
+	display: inline;
+	padding: 0px 10px 0px 10px;
+}
+
+.pen {
+  	display: inline;
+	padding: 0px 15px 0px 15px;
+	margin: 0px 10px 0 10px;
+}
+
+#black {background-color: black;}
+
+#red {background-color: red;}
+
+#green {background-color: green;}
+
+#blue {background-color: blue;}
+
+/* Formatting for data collection */
+
+.configMess {
+  visibility: hidden;
+  font-size: 0.8em;
+}
