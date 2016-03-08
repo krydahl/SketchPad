@@ -3,9 +3,7 @@ $(document).ready(function () {
 var canHeight = 60;
 var canWidth = 80;
 var pixelSize = 6;
-var isDown = false;
 var $canvasMethod;
-var ink = "black";
 
 
 /*  Functions we'll be calling: */
@@ -74,54 +72,38 @@ var ink = "black";
     /* The next function monitors the mouse and drawing grid for inputs */
 
     function drawing() {
+        
+        var ink = "black";
     
     /* We want to draw on the grid if the mouse is over
      * a square with the mouse button held down.
      * If the right button is held down, erase (change back to standard background
      * color). This isn't what the assignment says to do, but seems more useful to me. */
 
-    /* Let's monitor what buttons are pressed. It looks like I ought to explore whether
-     * bind is a better way to do this that having a variable. */
+    /* Let's monitor for mouseover the canvas pixels and then check if a mouse button is
+     * pressed (event.which) and act accordingly. */
  
- 
-        $('#wrapper').mousedown(function(event) {
-            switch (event.which) {
+        $(".padElement").on("mouseover", function(event) {
+             $(this).css('cursor','crosshair');
+             switch (event.which) {
                 case 1:
-                    isDown = "left";  // When left mouse goes down, set isDown to left
+                    $(this).addClass(ink);
                     break;
                 case 2:
-                    isDown = "center";
+                    //No action required
                     break;
                 case 3:
-                    isDown = "right";
+                    $(this).removeClass("black");
+                    $(this).removeClass("red");
+                    $(this).removeClass("green");
+                    $(this).removeClass("blue");
                     break;
                 default:
-                    isDown = false;
+                    // Do nothing
             }
         });
 
-        $("body").mouseup(function() {
-            isDown = false;    // When mouse goes up, set isDown to false
-        });
-    
-    /* OK, now we know what state the mouse is in, let's change the color when
-     * we mouse over the sketchpad. */
-    
-        $("#wrapper").mouseover(function(){
-            /* Let's get a sensible mouse cursor for drawing first */
-            $(this).css('cursor','crosshair');
-        });
-    
-        $('.padElement').mouseover(function(){
-            if (isDown === "left") {
-                $(this).addClass(ink);
-            } else if (isDown === "right") {
-                $(this).removeClass("black");
-                $(this).removeClass("red");
-                $(this).removeClass("green");
-                $(this).removeClass("blue");
-            }
-        });
+        /* Monitor for clicks on the the pen colour buttons and set variable accordingly */
         
         $("#black").on("click", function () {
             ink = "black";
